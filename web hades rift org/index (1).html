@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hades Rift</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Header with navigation -->
+    <header>
+        <h1 class="title">Hades Rift</h1>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="#" onclick="openLoginModal()">Admin</a>
+        </nav>
+    </header>
+
+    <!-- Main content area for uploaded content -->
+    <main>
+        <h2>Welcome to Hades Rift</h2>
+        <div id="uploadedContent"></div>
+    </main>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close-btn">&times;</span>
+            <h2>Admin Login</h2>
+            <div class="password-container">
+                <input type="password" id="adminPassword" placeholder="Enter Password">
+                <button id="togglePassword" onclick="togglePasswordVisibility()">Show</button>
+            </div>
+            <button onclick="validatePassword()">Login</button>
+            <p id="errorMsg" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Admin Control Panel -->
+    <div id="adminPanel" class="control-panel hidden">
+        <header class="panel-header">
+            <h2>Admin Control Panel</h2>
+            <button onclick="closeAdminPanel()">Logout</button>
+        </header>
+        <div class="panel-content">
+            <section>
+                <h3>Manage Content</h3>
+                <input type="file" id="fileInput" accept="*/*">
+                <button onclick="uploadContent()">Upload File</button>
+                <input type="text" id="textInput" placeholder="Enter text to display">
+                <button onclick="addText()">Add Text</button>
+            </section>
+            <section>
+                <h3>Customize Theme</h3>
+                <label for="bgColor">Background Color:</label>
+                <input type="color" id="bgColor" onchange="changeBackgroundColor(this.value)">
+                <label for="bgImage">Upload Background Image:</label>
+                <input type="file" id="bgImage" accept="image/*" onchange="uploadBackgroundImage(this)">
+            </section>
+        </div>
+    </div>
+</body>
+</html>
